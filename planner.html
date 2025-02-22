@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title> daily planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="x-icon" href="111.jpg">
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="colors">
+        <button onclick="openUI()" > Color </button>
+        </div>
+        <div id="colorUI">
+            <div class="content">
+                <h2 >Pick a color to change the background:</h2>
+                <input type="color" id="mainColor">
+                <button onclick="changeRootColor()">Change Color 1</button> <br>
+                <input type="color" id="secondColor">
+                <button onclick="changeRootColor2()">Change Color 2</button> <br>
+                <button onclick="reverse()"> Reverse Colors </button> <br>
+                <button id="saveColors">Save Colors</button>
+            </div>
+        </div>
+
+
+        <div class="title">
+             <text id="Title"> Daily planner </text>
+            <div class="linebox">
+            <input type="text" id="taskName" placeholder="Enter your task..." onkeypress="addTask2()">
+            <button onclick="addTask()"> Add</button>
+            </div>
+            <ul id="List">
+            </ul>
+            <button onclick="resetAll()" class="reset" id="resetBtn">Reset All!</button>
+        </div>
+        
+    </div>
+
+
+
+</body>
+<script src="script.js"> </script>
+</html>
+
