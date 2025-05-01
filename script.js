@@ -48,10 +48,8 @@ listName.addEventListener("click", function(e){
 
 
 document.getElementById('resetBtn').addEventListener('click', function() {
-    // Select all list items
     var listItems = document.querySelectorAll('#List li');
 
-    // Loop through each list item and set the 'highlight' class
     listItems.forEach(function(item) {
         item.classList.remove('checked');
         saveData();
@@ -82,19 +80,13 @@ function openUI() {
   
   
   function changeRootColor() {
-    // Get the value from the color picker
     const color = document.getElementById("mainColor").value;
-
-    // Change the CSS variable in :root
     document.documentElement.style.setProperty('--color-1', color);
     saveData();
 }
 
 function changeRootColor2() {
-    // Get the value from the color picker
     const color2 = document.getElementById("secondColor").value;
-
-    // Change the CSS variable in :root
     document.documentElement.style.setProperty('--color-2', color2);
     saveData();
 }
@@ -106,13 +98,11 @@ function reverse() {
     const currentColor2 = getComputedStyle(document.documentElement).getPropertyValue('--color-2').trim();
 
       if (currentColor1 === color2 && currentColor2 === color1) {
-        // If already swapped, revert to the original colors
         document.documentElement.style.setProperty('--color-1', color1);
         document.documentElement.style.setProperty('--color-2', color2);
         document.getElementById('mainColor').value = currentColor1;
         document.getElementById('secondColor').value = currentColor2;
     } else {
-        // Otherwise, swap the colors
         document.documentElement.style.setProperty('--color-1', color2);
         document.documentElement.style.setProperty('--color-2', color1);
         document.getElementById('mainColor').value = currentColor2;
@@ -136,19 +126,13 @@ function applySavedColors() {
         document.getElementById('secondColor').value = savedsecondColor;
     }
 }
-
-// Apply saved colors when the page loads
 applySavedColors();
 
-// Save the colors when the user clicks the button
 document.getElementById('saveColors').addEventListener('click', () => {
     const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--color-1').trim();
     const secondColor = getComputedStyle(document.documentElement).getPropertyValue('--color-2').trim();
-    // Save the colors in localStorage
     localStorage.setItem('mainColor', mainColor);
     localStorage.setItem('secondColor', secondColor);
-
-    // Apply the colors
     document.documentElement.style.setProperty('--color-1', mainColor);
     document.documentElement.style.setProperty('--color-2', secondColor);
 });
